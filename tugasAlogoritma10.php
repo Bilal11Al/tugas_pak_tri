@@ -1,14 +1,19 @@
 <?php
-
+$result = "";
 if (isset($_POST['simpan'])) {
-  $angka = $_POST['angka'];
+  $angka = $_POST['angka'] ?? 0;
 
-  if ($angka % 2 == 0) {
-    echo "Angka negatif";
+  if ($angka > 0) {
+    $result = "Nilai positif";
+  } elseif ($angka == 0) {
+    $result = "ini nol";
+  } elseif ($angka == null) {
+    $result = "masukan angka";
   } else {
-    echo "Angka positif";
+    $result = "Nilai Negatif";
   }
 }
+echo $result;
 ?>
 
 <!DOCTYPE html>

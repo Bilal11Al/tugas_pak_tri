@@ -2,11 +2,13 @@
 
 if (isset($_POST['simpan'])) {
   $angka = $_POST['angka'];
-  if ($angka % 2 == 0) {
-    echo "Angka Genap";
-  } else {
-    echo "Angka Ganjil";
-  }
+  // if ($angka % 2 == 0) {
+  //   echo "Angka Genap";
+  // } else {
+  //   echo "Angka Ganjil";
+  // }
+  $angkas =( $angka % 2 == 0) ?  "angka genap" : "angka ganjil";
+  echo $angkas;
 }
 
 
