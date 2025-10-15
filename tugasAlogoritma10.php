@@ -1,16 +1,16 @@
 <?php
 $result = "";
-if (isset($_POST['simpan'])) {
-  $angka = $_POST['angka'] ?? 0;
+if (isset($_POST['simpan']) ?? null) {
+  $angka = $_POST['angka'];
 
-  if ($angka > 0) {
-    $result = "Nilai positif";
-  } elseif ($angka == 0) {
-    $result = "ini nol";
-  } elseif ($angka == null) {
+  if (!is_numeric($angka)) {
     $result = "masukan angka";
+  } elseif ($angka > 0) {
+    $result = "angka positif";
+  } elseif ($angka == 0) {
+    $result = "Ini 0";
   } else {
-    $result = "Nilai Negatif";
+    $result = "Angka Negatif";
   }
 }
 echo $result;
@@ -28,7 +28,7 @@ echo $result;
 <body>
   <form action="" method="post">
     <label for=""> masukan Angka</label>
-    <input type="number" name="angka">
+    <input type="text" name="angka">
     <button name="simpan" type="submit">Simpan</button>
   </form>
 </body>
